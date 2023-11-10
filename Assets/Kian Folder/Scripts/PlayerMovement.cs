@@ -9,20 +9,27 @@ public class PlayerMovement : MonoBehaviour
 
     #region Movement/acceleration/physics
     [Header("MOVEMENT")]
-    public bool canMove = true;
-    [SerializeField, Range(0f, 30f)] private float maxMovementSpeed = 5;
-    [SerializeField, Range(0f, 5f)] private float minWalkSpeed = 2;
-    [SerializeField, Range(0f, 20f)] public float oMoveSpeed = 5;
-    [SerializeField, Range(0f, 10f)] private float walkAcceleration = 5;
-    [SerializeField, Range(0f, 5f)] private float velocityPower = 2f;
+    [SerializeField, Range(0f, 30f), Tooltip("Sets max player speed")]
+    private float maxMovementSpeed = 5;
+    [SerializeField, Range(0f, 5f), Tooltip("sets min player speed. If the player stops moving this is the speed they will come to a stop at.")]
+    private float minWalkSpeed = 2;
+    [SerializeField, Range(0f, 20f), Tooltip("When the player begins moving, this is the speed they start at")]
+    public float oMoveSpeed = 5;
+    [SerializeField, Range(0f, 10f), Tooltip("sets walk acceleration")] 
+    private float walkAcceleration = 5;
+    [SerializeField, Range(0f, 5f), Tooltip("Mess with this, but keep it around 1.2.")]
+    private float velocityPower = 2f;
+
     private float targetSpeed;
     private float speedDifference;
     private float accelerationRate;
     private float movement;
+
     [HideInInspector] public float nMoveSpeed;
     [HideInInspector] public Rigidbody2D theRB;
     [HideInInspector] public Vector2 moveDir;
     [HideInInspector] public bool facingRight = true;
+    [HideInInspector] public bool canMove = true;
     #endregion
 
     #region deceleration
@@ -48,18 +55,28 @@ public class PlayerMovement : MonoBehaviour
 
     #region Jumping variables
     [Header("JUMPING")]
-    [SerializeField, Range(0f, 20f)] private float oJumpForce = 5;
+    [SerializeField, Range(0f, 20f), Tooltip("The power of the original jump.")] 
+    private float oJumpForce = 5;
     private float nJumpForce;
-    [SerializeField, Range(0f, 2f)] private float jumpTime = 1;
-    [SerializeField, Range(0f, 2f)] private float jumpLeeway = 1;
+
+    [SerializeField, Range(0f, 2f), Tooltip("How long holding the jump button has an effect.")]
+    private float jumpTime = 1;
+    [SerializeField, Range(0f, 2f),Tooltip("The amount of time the player can press jump before landing and still get the next jump.")]
+    private float jumpLeeway = 1;
     private float leewayCounter;
     private bool doLeewayJump = false;
-    [SerializeField, Range(0f, 2f)] private float gCheckDist = 5;
-    [SerializeField, Range(0f, 5f)] private float postJumpGravity = 0;
-    [Range(0f, 40f)] public float maxFallSpeed;
+
+    [SerializeField, Range(0f, 2f), Tooltip("The distance below the player that will be checked for ground.")] 
+    private float gCheckDist = 5;
+    [SerializeField, Range(0f, 5f), Tooltip("Sets the players gravity to this when they fall after a jump")]
+    private float postJumpGravity = 0;
+    [Range(0f, 40f)]
+    public float maxFallSpeed;
+    [Tooltip("Sets the amount of jumps the player has. It does this at project startup, so it wont change during runtime!")]
     public int jumpsAvailable = 1;
     private int maxJumps;
-    [SerializeField] private LayerMask groundMask;
+    [SerializeField, Tooltip("DONT CHANGE THIS!")] 
+    private LayerMask groundMask;
 
     private RaycastHit2D groundHit;
     private float jumpCounter;
@@ -97,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        maxJumps = jumpsAvailable;
         nWalkDeceleration = oWalkDeceleration;
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         theRB = GetComponent<Rigidbody2D>();
@@ -181,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
         //(needed because it puts the deceleration back to max)
         if (isGrounded())
         {
-            jumpsAvailable = 1;
+            jumpsAvailable = maxJumps;
             onGroundTimer += Time.deltaTime;
 
 
@@ -254,7 +272,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void jump()
     {
-        maxJumps = 1;
         if ((Input.GetButtonDown("Jump") && jumpsAvailable > 0) || doLeewayJump)
         {
             nJumpForce = oJumpForce;
