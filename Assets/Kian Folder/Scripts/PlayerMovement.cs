@@ -297,19 +297,19 @@ public class PlayerMovement : MonoBehaviour
             */
 
             //this is for falling through platforms
-            /*if (moveDir.y < 0 && isGrounded())
+            if (moveDir.y < 0 && isGrounded())
             {
                 isJumping = false;
                 isRising = false;
                 isFalling = true;
             }
             else
-            {*/
+            {
             isJumping = true;
             isRising = true;
             isFalling = false;
             jumpsAvailable--;
-            //}
+            }
         }
 
         //if the player continues to hold the jump button
