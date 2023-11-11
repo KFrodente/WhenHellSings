@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d8542271a6df64596c1f3903abce1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMove: 1
   maxMovementSpeed: 25
   minWalkSpeed: 2
   oMoveSpeed: 10
@@ -119,12 +118,15 @@ MonoBehaviour:
   theRB: {fileID: 0}
   moveDir: {x: 0, y: 0}
   facingRight: 1
+  canMove: 1
   oWalkDeceleration: 3
   maxDeceleration: 3
   minDeceleration: 1.5
   jumpDecelerationIncrease: 0.35
   decelerationDiminish: 0.45
   forcedDecelerationRaiseTimer: 0.15
+  slickMaterial: {fileID: 6200000, guid: 4b374253f39570b449def5992f71f7bb, type: 2}
+  frictionMaterial: {fileID: 6200000, guid: b7259147d1bf3604681689acc832de45, type: 2}
   oJumpForce: 15.5
   jumpTime: 0.145
   jumpLeeway: 0.12

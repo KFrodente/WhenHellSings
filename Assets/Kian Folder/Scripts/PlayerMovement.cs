@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
     #region Colliders
     [Header("COLLIDERS")]
     private CapsuleCollider2D capsuleCollider;
+    public PhysicsMaterial2D slickMaterial;
+    public PhysicsMaterial2D frictionMaterial;
     #endregion
 
     #region Jumping variables
@@ -144,10 +146,19 @@ public class PlayerMovement : MonoBehaviour
 
 
         //makes it so the player doesn't slide once their speed is less than a certain amount;
-        if ((theRB.velocity.x < minWalkSpeed && theRB.velocity.x > -minWalkSpeed) && moveDir.x == 0)
+        if ((Mathf.Abs(theRB.velocity.x) < minWalkSpeed/* && theRB.velocity.x > -minWalkSpeed*/) && moveDir.x == 0)
         {
             theRB.velocity = new Vector2(0f, theRB.velocity.y);
         }
+
+        if (moveDir.x == 0)
+        {
+            if (capsuleCollider.sharedMaterial == frictionMaterial && frictionMaterial.friction != 0.4f)
+                frictionMaterial.friction = 0.4f;
+        }
+        else if (moveDir.x != 0 && frictionMaterial.friction != 0)
+            frictionMaterial.friction = 0;
+
 
         /*
         //Change the gravity depending on situation
@@ -383,6 +394,17 @@ public class PlayerMovement : MonoBehaviour
             theRB.gravityScale = oGravity;
             nJumpForce = oJumpForce;
             isFalling = false;
+
+            if (groundHit.collider.tag == "Ramp")
+            {
+                capsuleCollider.sharedMaterial = frictionMaterial;
+            }
+
+            if (groundHit.collider.tag == "Ground")
+            {
+                capsuleCollider.sharedMaterial = slickMaterial;
+            }
+
             return true;
         }
 
@@ -408,44 +430,6 @@ public class PlayerMovement : MonoBehaviour
             nWalkDeceleration = maxDeceleration;
         }
     }
-    //public float MoveSpeed;
-    //public float jumpSpeed;
-
-    //private bool jumping;
-
-    //private float horizontalDir;
-
-    //private Rigidbody2D theRB;
-
-    //private Camera mainCam;
-
-    //private void Start()
-    //{
-    //    theRB = GetComponent<Rigidbody2D>();
-    //    mainCam = Camera.main;
-    //}
-
-    //private void FixedUpdate()
-    //{
-    //    horizontalDir = Input.GetAxisRaw("Horizontal");
-
-    //    if (jumping)
-    //    {
-    //        theRB.velocity = new Vector3(horizontalDir * MoveSpeed, jumpSpeed, 0);
-    //    }
-    //    else
-    //        theRB.velocity = new Vector3(horizontalDir * MoveSpeed, theRB.velocity.y, 0f);
-    //}
-
-    //private void Update()
-    //{
-    //    mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
-
-    //    if (Input.GetButtonDown("Jump"))
-    //    {
-    //        jumping = true;
-    //    }
-    //}
 
 
 }
