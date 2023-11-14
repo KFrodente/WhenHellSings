@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+
     private float onGroundTimer;
     private float oGravity;
 
@@ -112,7 +114,10 @@ public class PlayerMovement : MonoBehaviour
     */
     #endregion
 
-    
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
