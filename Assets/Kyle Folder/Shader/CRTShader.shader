@@ -45,9 +45,9 @@ Shader "Custom/crtShader"
                 int pp = (uint)ps.y % 3;
                 float4 outcolor = float4(0, 0, 0, 1);
                 
-                if (pp == 1) outcolor.r = color.r;
-                else if (pp == 2) outcolor.g = color.g;
-                else outcolor.b = color.b;
+                if (pp == 1) outcolor.r = color.r * 2.5;
+                else if (pp == 2) outcolor.g = color.g * 2;
+                else outcolor.b = color.b * 2;
 
                 return outcolor;
             }
