@@ -43,7 +43,7 @@ Shader "Custom/crtShader"
                 half4 color = tex2D(_MainTex, i.uv);
                 float2 ps = i.scr_pos.xy *_ScreenParams.xy / i.scr_pos.w;
                 int pp = (uint)ps.y % 3;
-                float4 outcolor = float4(0, 0, 0, 1);
+                float4 outcolor = float4(0.001, 0.001, 0.004, 1);
                 
                 if (pp == 1) outcolor.r = color.r * 2.5;
                 else if (pp == 2) outcolor.g = color.g * 2;
