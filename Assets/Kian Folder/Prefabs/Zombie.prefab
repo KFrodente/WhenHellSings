@@ -113,7 +113,9 @@ MonoBehaviour:
   contactDamage: 0
   contactIFrames: 0
   moveSpeed: -5
-  bounce: 0
+  facingRight: 0
+  agroRadius: 6.82
+  bounce: 1
 --- !u!1 &3645826538342467537
 GameObject:
   m_ObjectHideFlags: 0

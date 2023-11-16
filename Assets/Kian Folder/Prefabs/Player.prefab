@@ -155,6 +155,7 @@ MonoBehaviour:
   firePoint: {fileID: 3059464330763427287}
   currentBolt: {fileID: 1516818430449759293, guid: 62eb19bea7fef294eb230d3a4bb5a563, type: 3}
   firerate: 0
+  pauseMoveTime: 0.58
 --- !u!1 &2420930874824938439
 GameObject:
   m_ObjectHideFlags: 0
