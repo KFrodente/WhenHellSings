@@ -394,14 +394,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2087511619853395452, guid: d8ed078d2aacdd04b82ce1412bdcd8f6, type: 3}
-      propertyPath: bounce
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087511619853395452, guid: d8ed078d2aacdd04b82ce1412bdcd8f6, type: 3}
-      propertyPath: agroRadius
-      value: 6.82
-      objectReference: {fileID: 0}
     - target: {fileID: 3645826538342467537, guid: d8ed078d2aacdd04b82ce1412bdcd8f6, type: 3}
       propertyPath: m_Name
       value: Zombie
@@ -462,10 +454,6 @@ PrefabInstance:
     - target: {fileID: 761723021637012432, guid: a2b3bb3a722026d43ad3969ab4517f57, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6816617378769825438, guid: a2b3bb3a722026d43ad3969ab4517f57, type: 3}
-      propertyPath: pauseMoveTime
-      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 6819882921734026169, guid: a2b3bb3a722026d43ad3969ab4517f57, type: 3}
       propertyPath: m_LocalPosition.x
