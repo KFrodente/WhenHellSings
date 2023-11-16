@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Xavier%20Folder/UI/UI%20Level%20Select/Charles_Level_Select_UI.uss?fileID=7433441132597879392&amp;guid=c7de01595f91e234aad7882b253f8238&amp;type=3#Charles_Level_Select_UI" />
+    <ui:VisualElement name="Background" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Xavier%20Folder/Images/WoodPlankTex.jpg?fileID=2800000&amp;guid=dbfdf618d522b61449f2e60730db4a98&amp;type=3#WoodPlankTex&apos;); -unity-background-image-tint-color: rgb(190, 190, 190);">
+        <ui:GroupBox name="LevelGroup" style="flex-direction: row; flex-wrap: wrap;">
+            <ui:Button text="Frankenstein&apos;s Monster" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="Level1" class="level-select-button" style="white-space: normal;" />
+            <ui:Button text="Level 2" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="Level2" class="level-select-button" />
+            <ui:Button text="Level 3" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="Level3" class="level-select-button" />
+            <ui:Button text="Level 4" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="Level4" class="level-select-button" />
+        </ui:GroupBox>
+    </ui:VisualElement>
+</ui:UXML>
