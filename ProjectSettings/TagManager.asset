@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Ramp
   - Ground
+  - Enemy
+  - Bolt
+  - EnemyWall
+  - Wall
+  - Bounce
   layers:
   - Default
   - TransparentFX
