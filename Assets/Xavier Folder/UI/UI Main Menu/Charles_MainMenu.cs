@@ -2,16 +2,16 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Charles_Main_Menu_UI : EditorWindow
+public class Charles_MainMenu : EditorWindow
 {
     [SerializeField]
     private VisualTreeAsset m_VisualTreeAsset = default;
 
-    [MenuItem("Window/UI Toolkit/Charles_Main_Menu_UI")]
+    [MenuItem("Window/UI Toolkit/Charles_MainMenu")]
     public static void ShowExample()
     {
-        Charles_Main_Menu_UI wnd = GetWindow<Charles_Main_Menu_UI>();
-        wnd.titleContent = new GUIContent("Charles_Main_Menu_UI");
+        Charles_MainMenu wnd = GetWindow<Charles_MainMenu>();
+        wnd.titleContent = new GUIContent("Charles_MainMenu");
     }
 
     public void CreateGUI()

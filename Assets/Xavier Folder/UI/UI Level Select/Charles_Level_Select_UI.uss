@@ -1,2 +1,26 @@
 .level-select-button {
 }
+
+.level-select-button {
+    white-space: normal;
+    background-image: url('project://database/Assets/Xavier%20Folder/Images/PixilatedBurningVillage.png?fileID=2800000&guid=d36902f1856053843bf11e15e7522e29&type=3#PixilatedBurningVillage');
+    -unity-background-scale-mode: scale-and-crop;
+    height: 372px;
+    width: 360px;
+    -unity-font-definition: initial;
+    -unity-font: url('project://database/Assets/Xavier%20Folder/Fonts/angel_wish/Angel%20wish.otf?fileID=12800000&guid=957933149c5e42f49b1f6b13a4eb7f77&type=3#Angel wish');
+    font-size: 60px;
+    color: rgb(142, 0, 0);
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+}
+
+.ls-exit-button {
+    margin-right: 40%;
+    margin-left: 40%;
+    font-size: 50px;
+    -unity-font-definition: initial;
+    -unity-font: url('project://database/Assets/Xavier%20Folder/Fonts/angel_wish/Angel%20wish.otf?fileID=12800000&guid=957933149c5e42f49b1f6b13a4eb7f77&type=3#Angel wish');
+    color: rgb(103, 8, 8);
+    background-color: rgba(253, 92, 92, 0.42);
+}

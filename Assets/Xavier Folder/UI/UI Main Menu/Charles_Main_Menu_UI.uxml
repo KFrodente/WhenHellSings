@@ -1,9 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Xavier%20Folder/Charles_Main_Menu_UI.uss?fileID=7433441132597879392&amp;guid=7908a8f1bc6597f4fa7fb28b2a8dc364&amp;type=3#Charles_Main_Menu_UI" />
-    <Style src="project://database/Assets/Xavier%20Folder/Charles_Level_Select.uss?fileID=7433441132597879392&amp;guid=cf3b4d4a05273c642b520b5bd3adc9ab&amp;type=3#Charles_Level_Select" />
-    <ui:VisualElement style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Xavier%20Folder/Images/PixilatedBurningVillage.png?fileID=2800000&amp;guid=d36902f1856053843bf11e15e7522e29&amp;type=3#PixilatedBurningVillage&apos;);">
-        <ui:Label tabindex="-1" text="When Hell Sings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="-unity-font: url(&apos;project://database/Assets/Xavier%20Folder/Fonts/angel_wish/Angel%20wish.otf?fileID=12800000&amp;guid=957933149c5e42f49b1f6b13a4eb7f77&amp;type=3#Angel wish&apos;); -unity-text-align: upper-center; font-size: 150px; -unity-font-definition: initial; -unity-font-style: normal; text-overflow: clip; text-shadow: 0 5px 5px rgb(0, 0, 0); color: rgb(115, 0, 0); -unity-text-outline-width: 2px; -unity-text-outline-color: rgb(0, 0, 0); height: 324px;" />
-        <ui:Button text="Start Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" class="main-menu-element" />
-        <ui:Button text="Level Select" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LevelSelectButton" class="main-menu-element" />
-    </ui:VisualElement>
-</ui:UXML>

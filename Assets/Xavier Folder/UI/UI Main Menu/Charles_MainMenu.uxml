@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Xavier%20Folder/UI/UI%20Main%20Menu/Charles_MainMenu.uss?fileID=7433441132597879392&amp;guid=41cfdd43e3360a949a9983b2ca183d8e&amp;type=3#Charles_MainMenu" />
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Xavier%20Folder/Images/PixilatedBurningVillage.png?fileID=2800000&amp;guid=d36902f1856053843bf11e15e7522e29&amp;type=3#PixilatedBurningVillage&apos;); text-shadow: 0 0 3px rgba(0, 0, 0, 0);">
+        <ui:Label text="When Hell Sings" name="Title" class="main-menu-title" />
+        <ui:Button text="Start" parse-escape-sequences="true" display-tooltip-when-elided="true" name="btStart" class="main-menu-button" style="-unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0);" />
+        <ui:Button text="Level Select" parse-escape-sequences="true" display-tooltip-when-elided="true" name="btLevels" class="main-menu-button" style="-unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0);" />
+        <ui:Button text="Exit Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="btExit" class="main-menu-button" style="-unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0);" />
+    </ui:VisualElement>
+</ui:UXML>
