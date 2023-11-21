@@ -195,9 +195,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mainCam.transform.position = new Vector3(transform.position.x, transform.position.y+3, -10);
         if (!canMove) return;
 
-        mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
 
         #region checking direction
         //sets rotation based on movement direction
