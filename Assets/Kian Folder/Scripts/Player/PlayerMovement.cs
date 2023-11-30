@@ -145,17 +145,6 @@ public class PlayerMovement : MonoBehaviour
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.y = Input.GetAxisRaw("Vertical");
 
-        //if (overLadder && Mathf.Abs(moveDir.y) > 0)
-        //{
-        //    transform.position += new Vector3(0, climbSpeed * moveDir.y, 0);
-        //    theRB.gravityScale = 0;
-        //}
-        //else if(overLadder && moveDir.y == 0 && !isGrounded())
-        //{
-        //    theRB.velocity = Vector2.zero;
-        //}
-
-
         //gets the direciton we want to move in
         targetSpeed = moveDir.x * nMoveSpeed;
         //gets the difference between current velocity and wanted velocity
@@ -441,6 +430,7 @@ public class PlayerMovement : MonoBehaviour
         nWalkDeceleration = oWalkDeceleration;
 
     }
+
 
     private void raiseDeceleration(float amount)
     {

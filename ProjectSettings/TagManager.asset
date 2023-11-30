@@ -12,6 +12,7 @@ TagManager:
   - Wall
   - Bounce
   - Ladder
+  - Trigger
   layers:
   - Default
   - TransparentFX

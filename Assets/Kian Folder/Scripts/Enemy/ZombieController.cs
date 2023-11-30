@@ -70,11 +70,27 @@ public class ZombieController : EnemyParent
             Flip();
         }
 
+        if (other.tag == "Player")
+        {
+            PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
+            Debug.Log("Hit player");
+        }
+
         if (other.tag == "Bounce")
         {
             if (!aggressive) Flip();
         }
     }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
+            Debug.Log("Hit player");
+        }
+    }
+
 
     private void Flip()
     {
