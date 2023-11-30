@@ -32,7 +32,7 @@ public class BoltController : MonoBehaviour
         if (other.tag == "Enemy")
             other.GetComponent<EnemyParent>().TakeDamage(boltDamage);
 
-        if (other.tag != "Player" && other.tag != "EnemyWall" && other.tag != "Bounce")
+        if (other.tag != "Player" && other.tag != "EnemyWall" && other.tag != "Bounce" && other.tag != "Ladder")
             Destroy(gameObject);
     }
 

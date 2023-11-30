@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float onGroundTimer;
     private float oGravity;
+
+    [SerializeField] private bool overLadder = false;
+    [SerializeField] private float climbSpeed;
 
     #region Movement/acceleration/physics
     [Header("MOVEMENT")]
@@ -141,6 +145,17 @@ public class PlayerMovement : MonoBehaviour
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.y = Input.GetAxisRaw("Vertical");
 
+        //if (overLadder && Mathf.Abs(moveDir.y) > 0)
+        //{
+        //    transform.position += new Vector3(0, climbSpeed * moveDir.y, 0);
+        //    theRB.gravityScale = 0;
+        //}
+        //else if(overLadder && moveDir.y == 0 && !isGrounded())
+        //{
+        //    theRB.velocity = Vector2.zero;
+        //}
+
+
         //gets the direciton we want to move in
         targetSpeed = moveDir.x * nMoveSpeed;
         //gets the difference between current velocity and wanted velocity
@@ -195,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mainCam.transform.position = new Vector3(transform.position.x, transform.position.y+3, -10);
+        mainCam.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, -10);
         if (!canMove) return;
 
 
@@ -436,5 +451,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Ladder")
+        {
+            overLadder = true;
+        }
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Ladder")
+        {
+            overLadder = false;
+        }
+    }
 }
