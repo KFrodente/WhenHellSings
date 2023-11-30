@@ -196,7 +196,7 @@ MonoBehaviour:
   health: 15
   contactDamage: 5
   contactITime: 2
-  moveSpeed: 0
+  moveSpeed: 7
   facingRight: 0
   agroRadius: 15
   bounce: 0
