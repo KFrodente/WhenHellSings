@@ -7,7 +7,7 @@ public abstract class EnemyParent : MonoBehaviour
 {
     [SerializeField] protected int health;
     [SerializeField] protected int contactDamage;
-    [SerializeField, Tooltip("When the player touches this enemy, how many invincibility frames do they get?")] protected int contactIFrames;
+    [SerializeField, Tooltip("When the player touches this enemy, how many invincibility time do they get?")] protected float contactITime;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected bool facingRight;
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class FlyingEnemyController : EnemyParent
     private void Update()
     {
         sinWaveTimer += Time.deltaTime;
-        transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y + ((amplitude * Mathf.Sin(sinWaveTimer * 3) * 1) * Mathf.Deg2Rad));
+        transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y + ((amplitude * Mathf.Sin(sinWaveTimer * 5) * 1) * Mathf.Deg2Rad));
     }
     public override void TakeDamage(int amount)
     {
@@ -17,6 +18,24 @@ public class FlyingEnemyController : EnemyParent
         if (health <= 0)
         {
             Death();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
+            Debug.Log("Hit player");
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
+            Debug.Log("Hit player");
         }
     }
 
