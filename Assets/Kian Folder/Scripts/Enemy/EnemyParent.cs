@@ -11,7 +11,9 @@ public abstract class EnemyParent : MonoBehaviour
     [SerializeField] public float moveSpeed;
     [SerializeField] protected bool facingRight;
 
-    protected Rigidbody2D rb;
+    protected float currentStun;
+
+    [SerializeField]protected Rigidbody2D rb;
 
     protected Vector2 originPos;
     [SerializeField] protected float agroRadius;
@@ -21,6 +23,34 @@ public abstract class EnemyParent : MonoBehaviour
     public bool bounce;
     protected bool shouldBounce;
 
+    public Color flashColor;
+    protected int flashSpeed = 5;
+    protected bool flashOn;
+
+    protected SpriteRenderer theSR;
+
+    protected void flash()
+    {
+        flashSpeed--;
+        if (flashOn)
+        {
+            theSR.color = flashColor;
+            if (flashSpeed <= 0)
+            {
+                flashSpeed = 5;
+                flashOn = false;
+            }
+        }
+        else
+        {
+            theSR.color = Color.white;
+            if (flashSpeed <= 0)
+            {
+                flashSpeed = 5;
+                flashOn = true;
+            }
+        }
+    }
 
     private void Start()
     {
@@ -29,6 +59,6 @@ public abstract class EnemyParent : MonoBehaviour
         originPos = transform.position;
     }
 
-    public abstract void TakeDamage(int amount);
+    public abstract void TakeDamage(int amount, float stunTime);
     protected abstract void Death();
 }

@@ -10,6 +10,8 @@ public class BoltController : MonoBehaviour
     public float boltSpeed;
     public int boltDamage;
 
+    public float stunTime;
+
     public float lifespan;
 
     [HideInInspector]public Vector2 direction;
@@ -30,7 +32,7 @@ public class BoltController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy")
-            other.GetComponent<EnemyParent>().TakeDamage(boltDamage);
+            other.GetComponent<EnemyParent>().TakeDamage(boltDamage, stunTime);
 
         if (other.tag != "Player" && other.tag != "EnemyWall" && other.tag != "Bounce" && other.tag != "Trigger")
             Destroy(gameObject);

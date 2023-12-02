@@ -3,9 +3,21 @@ using UnityEngine;
 
 public class ZombieController : EnemyParent
 {
-
+    private void Start()
+    {
+        theSR = GetComponentInChildren<SpriteRenderer>();
+    }
     private void Update()
     {
+        if (currentStun > 0)
+        {
+            currentStun -= Time.deltaTime;
+            flash();
+            return;
+        }
+
+        theSR.color = Color.white;
+
         CheckAggression();
 
         if (aggressive)
@@ -49,8 +61,9 @@ public class ZombieController : EnemyParent
         }
     }
 
-    public override void TakeDamage(int amount)
+    public override void TakeDamage(int amount, float stunTime)
     {
+        this.currentStun = stunTime;
         health -= amount;
         if (health <= 0 )
         {
