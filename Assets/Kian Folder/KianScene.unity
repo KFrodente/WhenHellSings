@@ -467,7 +467,7 @@ MonoBehaviour:
   whipHealCounter: 0
   whipArea: {fileID: 770929552}
   oWhipAttackCooldown: 2
-  whipLifespan: 1
+  whipLifespan: 0.35
 --- !u!1001 &337366450392283748
 PrefabInstance:
   m_ObjectHideFlags: 0

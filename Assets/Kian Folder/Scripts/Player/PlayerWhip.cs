@@ -35,8 +35,10 @@ public class PlayerWhip : MonoBehaviour
 
         if (whipLifespanCounter > 0)
         {
+            PlayerMovement.instance.canMove = false;
             whipLifespanCounter -= Time.deltaTime;
         }
+
 
         if (Input.GetButtonDown("Fire2"))
         {
@@ -50,8 +52,9 @@ public class PlayerWhip : MonoBehaviour
             }
         }
 
-        if (whipLifespanCounter <= 0)
+        if (whipLifespanCounter <= 0 && whipArea.activeInHierarchy)
         {
+            PlayerMovement.instance.canMove = true;
             whipArea.SetActive(false);
         }
     }

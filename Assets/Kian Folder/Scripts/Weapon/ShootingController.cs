@@ -12,6 +12,7 @@ public class ShootingController : MonoBehaviour
 
     public float pauseMoveTime;
     private float pauseMoveCounter;
+    private bool frozen = false;
 
     private float counter;
 
@@ -36,12 +37,16 @@ public class ShootingController : MonoBehaviour
         if (pauseMoveCounter > 0)
         {
             pauseMoveCounter -= Time.deltaTime;
-            if (PlayerMovement.instance.canMove)
+            if (!frozen)
+            {
                 PlayerMovement.instance.canMove = false;
+                frozen = true;
+            }
         }
-        if (pauseMoveCounter <= 0 && !PlayerMovement.instance.canMove)
+        if (pauseMoveCounter <= 0 && frozen)
         {
             PlayerMovement.instance.canMove = true;
+            frozen = false;
         }
 
     }
