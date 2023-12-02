@@ -87,4 +87,14 @@ public class PlayerHealthController : MonoBehaviour
             }
         }
     }
+
+    public void Heal(int amount)
+    {
+        health += amount;
+
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
 }

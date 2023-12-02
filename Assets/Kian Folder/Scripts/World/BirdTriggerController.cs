@@ -13,7 +13,9 @@ public class BirdTriggerController : MonoBehaviour
         {
             if (fromLeft)
             {
-                Instantiate(bird, new Vector3(transform.position.x - 15, transform.position.y, 0), transform.rotation);
+                GameObject recentBird = Instantiate(bird, new Vector3(transform.position.x - 15, transform.position.y, 0), transform.rotation);
+                recentBird.GetComponent<EnemyParent>().facingRight = true;
+
             }
             else
             {

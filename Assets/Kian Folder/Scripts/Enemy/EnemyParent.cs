@@ -9,7 +9,7 @@ public abstract class EnemyParent : MonoBehaviour
     [SerializeField] protected int contactDamage;
     [SerializeField, Tooltip("When the player touches this enemy, how many invincibility time do they get?")] protected float contactITime;
     [SerializeField] public float moveSpeed;
-    [SerializeField] protected bool facingRight;
+    public bool facingRight;
 
     protected float currentStun;
 
@@ -57,6 +57,14 @@ public abstract class EnemyParent : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         shouldBounce = bounce;
         originPos = transform.position;
+    }
+
+    public void Knockback(int knockbackPower)
+    {
+        if (facingRight)
+            rb.AddForce(new Vector2(-2.0f * knockbackPower, 0));
+        else
+            rb.AddForce(new Vector2(2.0f * knockbackPower, 0));
     }
 
     public abstract void TakeDamage(int amount, float stunTime);

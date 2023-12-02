@@ -85,8 +85,10 @@ public class ZombieController : EnemyParent
 
         if (other.tag == "Player")
         {
-            PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
-            Debug.Log("Hit player");
+            if (currentStun <= 0)
+            {
+                PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
+            }
         }
 
         if (other.tag == "Bounce")
@@ -99,8 +101,10 @@ public class ZombieController : EnemyParent
     {
         if (other.tag == "Player")
         {
-            PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
-            Debug.Log("Hit player");
+            if (currentStun <= 0)
+            {
+                PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
+            }
         }
     }
 
