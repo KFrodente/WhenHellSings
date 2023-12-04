@@ -7,13 +7,44 @@ public class FlyingEnemyController : EnemyParent
 {
     private float sinWaveTimer;
     [SerializeField] private float amplitude;
+
+    public float lifespan;
+    private float lifespanCounter;
+
+    private void Start()
+    {
+        theSR = GetComponentInChildren<SpriteRenderer>();
+        lifespanCounter = lifespan;
+    }
+
     private void Update()
     {
+        if (Mathf.Abs(Vector2.Distance(transform.position, PlayerMovement.instance.transform.position)) > 15.0f)
+        {
+            lifespanCounter -= Time.deltaTime;
+        }
+        else
+        {
+            if (lifespanCounter != lifespan) lifespanCounter = lifespan;
+        }
+
+        if (lifespanCounter <= 0) Destroy(gameObject);
+
+        if (currentStun > 0)
+        {
+            currentStun -= Time.deltaTime;
+            flash();
+            return;
+        }
+
+        theSR.color = Color.white;
+
         sinWaveTimer += Time.deltaTime;
         transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y + ((amplitude * Mathf.Sin(sinWaveTimer * 5) * 1) * Mathf.Deg2Rad));
     }
-    public override void TakeDamage(int amount)
+    public override void TakeDamage(int amount, float stunTime)
     {
+        this.currentStun = stunTime;
         health -= amount;
         if (health <= 0)
         {
@@ -25,8 +56,10 @@ public class FlyingEnemyController : EnemyParent
     {
         if (collision.tag == "Player")
         {
-            PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
-            Debug.Log("Hit player");
+            if (currentStun <= 0)
+            {
+                PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
+            }
         }
     }
 
@@ -34,8 +67,10 @@ public class FlyingEnemyController : EnemyParent
     {
         if (collision.tag == "Player")
         {
-            PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
-            Debug.Log("Hit player");
+            if (currentStun <= 0)
+            {
+                PlayerHealthController.instance.HitPlayer(contactITime, contactDamage);
+            }
         }
     }
 

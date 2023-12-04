@@ -198,6 +198,9 @@ MonoBehaviour:
   contactITime: 2
   moveSpeed: 7
   facingRight: 0
+  rb: {fileID: 1532765618247625787}
   agroRadius: 15
   bounce: 0
+  flashColor: {r: 1, g: 0.97974, b: 0.63584906, a: 0.7607843}
   amplitude: 2
+  lifespan: 5
