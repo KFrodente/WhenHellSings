@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Xavier%20Folder/UI/UI%20Health%20Bar/Charles_Health_Bar_UI.uss?fileID=7433441132597879392&amp;guid=94f18297e2a1e2949b0e69f587bcde5f&amp;type=3#Charles_Health_Bar_UI" />
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Steph&apos;s%20Folder/UiAssets/HealthAssets.png?fileID=21300000&amp;guid=f886e61a6812a8d4cb9bfb1de741e31e&amp;type=3#HealthAssets&apos;); -unity-background-scale-mode: scale-to-fit;" />
+</ui:UXML>
