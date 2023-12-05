@@ -22,11 +22,11 @@ public class ZombieController : EnemyParent
 
         if (aggressive)
         {
-            if (PlayerMovement.instance.transform.position.x > transform.position.x && !facingRight)
+            if (PlayerMovement.instance.transform.position.x > transform.position.x && !facingRight && Mathf.Abs(transform.position.x - PlayerMovement.instance.transform.position.x) >= 1)
             {
                 Flip();
             }
-            else if (PlayerMovement.instance.transform.position.x < transform.position.x && facingRight)
+            else if (PlayerMovement.instance.transform.position.x < transform.position.x && facingRight && Mathf.Abs(transform.position.x - PlayerMovement.instance.transform.position.x) >= 1)
             {
                 Flip();
             }
