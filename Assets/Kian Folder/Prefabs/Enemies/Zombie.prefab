@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3105235698629359732}
   - component: {fileID: 4466844910990675002}
   - component: {fileID: 2087511619853395452}
+  - component: {fileID: 3978615812222688650}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -154,6 +155,19 @@ MonoBehaviour:
   agroRadius: 6.82
   bounce: 1
   flashColor: {r: 0.90588236, g: 0.85762346, b: 0.49411765, a: 0.7019608}
+--- !u!114 &3978615812222688650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879153197926541294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c417e0213feafa14c84a2dd7d3de7304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6591521886980130939}
 --- !u!1 &3645826538342467537
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1829617303489593003}
   - component: {fileID: 3508651550429424133}
+  - component: {fileID: 6591521886980130939}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -362,3 +377,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6591521886980130939
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9094165671451040084}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65479826a3a56b642b73ff593a6a648b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
