@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class ZombieController : EnemyParent
 {
+    public AudioClip gotHitSound;
+
+    private float deathTimer = .35f;
+    private bool startDeath = false;
+
     private void Start()
     {
         theSR = GetComponentInChildren<SpriteRenderer>();
@@ -11,40 +16,52 @@ public class ZombieController : EnemyParent
     {
         if (PauseManager.instance.paused) return;
 
-        if (currentStun > 0)
+        if (startDeath)
         {
-            currentStun -= Time.deltaTime;
-            flash();
-            return;
-        }
-
-        theSR.color = Color.white;
-
-        CheckAggression();
-
-        if (aggressive)
-        {
-            if (PlayerMovement.instance.transform.position.x > transform.position.x && !facingRight && Mathf.Abs(transform.position.x - PlayerMovement.instance.transform.position.x) >= 1)
+            deathTimer -= Time.deltaTime;
+            GetComponent<ZombieAnimController>().animator.speed = 0;
+            if (deathTimer <= 0)
             {
-                Flip();
-            }
-            else if (PlayerMovement.instance.transform.position.x < transform.position.x && facingRight && Mathf.Abs(transform.position.x - PlayerMovement.instance.transform.position.x) >= 1)
-            {
-                Flip();
+                Death();
             }
         }
-
-        if (!aggressive)
+        else
         {
-            if (!inHome)
+            if (currentStun > 0)
             {
-                if (originPos.x > transform.position.x && !facingRight) Flip();
-                else if (originPos.x < transform.position.x && facingRight) Flip();
-
-                if (Mathf.Abs(transform.position.x - originPos.x) < 1f) inHome = true;
+                currentStun -= Time.deltaTime;
+                flash();
+                return;
             }
+
+            theSR.color = Color.white;
+
+            CheckAggression();
+
+            if (aggressive)
+            {
+                if (PlayerMovement.instance.transform.position.x > transform.position.x && !facingRight && Mathf.Abs(transform.position.x - PlayerMovement.instance.transform.position.x) >= 1)
+                {
+                    Flip();
+                }
+                else if (PlayerMovement.instance.transform.position.x < transform.position.x && facingRight && Mathf.Abs(transform.position.x - PlayerMovement.instance.transform.position.x) >= 1)
+                {
+                    Flip();
+                }
+            }
+
+            if (!aggressive)
+            {
+                if (!inHome)
+                {
+                    if (originPos.x > transform.position.x && !facingRight) Flip();
+                    else if (originPos.x < transform.position.x && facingRight) Flip();
+
+                    if (Mathf.Abs(transform.position.x - originPos.x) < 1f) inHome = true;
+                }
+            }
+            rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);
         }
-        rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);
     }
 
     private void CheckAggression()
@@ -65,11 +82,13 @@ public class ZombieController : EnemyParent
 
     public override void TakeDamage(int amount, float stunTime)
     {
+        AudioController.instance.PlaySound(gotHitSound, GetComponent<AudioSource>());
         this.currentStun = stunTime;
         health -= amount;
         if (health <= 0 )
         {
-            Death();
+            startDeath = true;
+
         }
     }
 

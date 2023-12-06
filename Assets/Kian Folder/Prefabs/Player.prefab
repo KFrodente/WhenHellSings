@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 280915579954861399}
   - component: {fileID: 5613268852828740366}
   - component: {fileID: 4485775346861203706}
+  - component: {fileID: 3410999422570975391}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2920193707615117621}
+  walkSound: {fileID: 8300000, guid: aa1806ef5434a6a49bdbef0a6bc92577, type: 3}
   maxMovementSpeed: 30
   minWalkSpeed: 4
   oMoveSpeed: 10
@@ -160,8 +162,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 3059464330763427287}
   currentBolt: {fileID: 1516818430449759293, guid: 70c38b01f8643c2458fd222ffdaf7529, type: 3}
-  nBolt: {fileID: 0}
-  lBolt: {fileID: 0}
+  nBolt: {fileID: 1516818430449759293, guid: 62eb19bea7fef294eb230d3a4bb5a563, type: 3}
+  lBolt: {fileID: 1516818430449759293, guid: 70c38b01f8643c2458fd222ffdaf7529, type: 3}
+  shootSound: {fileID: 8300000, guid: 6078a07b430d51847903160011c02e3a, type: 3}
   firerate: 0.125
   pauseMoveTime: 0.1
 --- !u!114 &280915579954861399
@@ -176,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c6223100fbc354cbc8d5a1701b0c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHitSound: {fileID: 8300000, guid: b71a8985a484a7b448f682b738101553, type: 3}
   maxHealth: 25
   health: 0
   iFrameTime: 0
@@ -193,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb55e44b7128fac4985f81116200f762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whipSound: {fileID: 8300000, guid: b741d982f87130e4692a9e18cbff881b, type: 3}
   oWhipHealCooldown: 5
   whipHealCounter: 0
   whipArea: {fileID: 3662341141771008893}
@@ -213,6 +218,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 3122868806763416071}
   paused: 0
+--- !u!82 &3410999422570975391
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761723021637012432}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2420930874824938439
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7553877306262566067
 Transform:
   m_ObjectHideFlags: 0

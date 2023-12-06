@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class FlyingEnemyController : EnemyParent
 {
+    public AudioClip gotHitSound;
     private float sinWaveTimer;
     [SerializeField] private float amplitude;
 
     public float lifespan;
     private float lifespanCounter;
+
+
 
     private void Start()
     {
@@ -43,9 +46,12 @@ public class FlyingEnemyController : EnemyParent
 
         sinWaveTimer += Time.deltaTime;
         transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y + ((amplitude * Mathf.Sin(sinWaveTimer * 5) * 1) * Mathf.Deg2Rad));
+
+        
     }
     public override void TakeDamage(int amount, float stunTime)
     {
+        //AudioController.instance.PlaySound(gotHitSound, GetComponent<AudioSource>());
         this.currentStun = stunTime;
         health -= amount;
         if (health <= 0)
