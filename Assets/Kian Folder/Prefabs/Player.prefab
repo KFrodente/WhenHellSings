@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6816617378769825438}
   - component: {fileID: 280915579954861399}
   - component: {fileID: 5613268852828740366}
+  - component: {fileID: 4485775346861203706}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -38,6 +39,7 @@ Transform:
   - {fileID: 1683321669945804093}
   - {fileID: 3059464330763427287}
   - {fileID: 3360937746680666787}
+  - {fileID: 7553877306262566067}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6108032309012754822
@@ -115,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2920193707615117621}
-  maxMovementSpeed: 25
+  maxMovementSpeed: 30
   minWalkSpeed: 4
   oMoveSpeed: 10
   walkAcceleration: 2.8
@@ -133,7 +135,7 @@ MonoBehaviour:
   forcedDecelerationRaiseTimer: 0.15
   slickMaterial: {fileID: 6200000, guid: 4b374253f39570b449def5992f71f7bb, type: 2}
   frictionMaterial: {fileID: 6200000, guid: b7259147d1bf3604681689acc832de45, type: 2}
-  oJumpForce: 20
+  oJumpForce: 18.4
   jumpTime: 0.145
   jumpLeeway: 0.12
   gCheckDist: 0.175
@@ -195,6 +197,20 @@ MonoBehaviour:
   whipSprite: {fileID: 3100624348963437346}
   oWhipAttackCooldown: 1.2
   whipLifespan: 0.21
+--- !u!114 &4485775346861203706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761723021637012432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ebf12d90f9b2484ba5135ff26e13c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseScreen: {fileID: 3122868806763416071}
+  paused: 0
 --- !u!1 &2420930874824938439
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +401,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3122868806763416071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7553877306262566067}
+  m_Layer: 0
+  m_Name: PauseScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7553877306262566067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3122868806763416071}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 457.37335, y: 281.07904, z: 2.724036}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1129746894331779130}
+  m_Father: {fileID: 6819882921734026169}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3141272904496477821
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,3 +560,64 @@ MonoBehaviour:
   whipStunTime: 3
   knockbackPower: 50
   hitEnemies: []
+--- !u!1 &5919865422884939341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1129746894331779130}
+  - component: {fileID: 8991412637925193020}
+  - component: {fileID: 4207769191973932663}
+  m_Layer: 5
+  m_Name: UIDocument
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1129746894331779130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5919865422884939341}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -497.16336, y: -288.69904, z: -2.724036}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7553877306262566067}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8991412637925193020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5919865422884939341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 5fc2f08c169d00541b59375ac6550541, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 895e1b02c311390438ceb0d29057aad1, type: 3}
+  m_SortingOrder: 0
+--- !u!114 &4207769191973932663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5919865422884939341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c8545a3cad3354eadd041419e9a96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

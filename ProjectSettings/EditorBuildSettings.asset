@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Ken Folden/FrankensteinsCastle.unity
     guid: 01c4f5b3c9798ec4ebd7102ce7cefae8
+  - enabled: 1
+    path: Assets/Kian Folder/Scenes/LevelSelect.unity
+    guid: 9b6328426678b8b47b6e5533466fbbc3
+  - enabled: 1
+    path: Assets/Kian Folder/Scenes/MainMenu.unity
+    guid: a3de11e0fb4a84642bc5fa327d73d481
+  - enabled: 1
+    path: Assets/Kian Folder/Scenes/KianScene.unity
+    guid: 6dd2688a6f82ddb4b8882f7a0f30a5e9
   m_configObjects: {}

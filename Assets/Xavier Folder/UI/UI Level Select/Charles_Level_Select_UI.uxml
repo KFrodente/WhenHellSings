@@ -7,6 +7,6 @@
             <ui:Button text="Level 3" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="Level3" class="level-select-button" />
             <ui:Button text="Level 4" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="Level4" class="level-select-button" />
         </ui:GroupBox>
-        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="btLSExit" class="ls-exit-button" />
+        <ui:Button text="Return" parse-escape-sequences="true" display-tooltip-when-elided="true" name="btLSExit" class="ls-exit-button" />
     </ui:VisualElement>
 </ui:UXML>

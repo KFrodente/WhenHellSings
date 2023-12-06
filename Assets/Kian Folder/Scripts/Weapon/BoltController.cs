@@ -23,6 +23,8 @@ public class BoltController : MonoBehaviour
 
     private void Update()
     {
+        if (PauseManager.instance.paused) return;
+
         rb.velocity = direction * boltSpeed;
         lifespan -= Time.deltaTime;
         if (lifespan < 0)
@@ -31,6 +33,8 @@ public class BoltController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (PauseManager.instance.paused) return;
+
         if (other.tag == "Enemy")
             other.GetComponent<EnemyParent>().TakeDamage(boltDamage, stunTime);
 

@@ -16,6 +16,7 @@ public class ZombieAnimController : MonoBehaviour
 
     private void Update()
     {
+
         //moveTimer -= Time.deltaTime;
         var playerDistance = Mathf.Abs(transform.position.x - PlayerMovement.instance.transform.position.x);
         if (GetComponent<EnemyParent>().currentStun <= 0)

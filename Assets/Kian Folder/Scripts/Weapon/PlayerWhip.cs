@@ -27,6 +27,7 @@ public class PlayerWhip : MonoBehaviour
 
     private void Update()
     {
+        if (PauseManager.instance.paused) { return; }
 
         whipHealCounter -= Time.deltaTime;
 

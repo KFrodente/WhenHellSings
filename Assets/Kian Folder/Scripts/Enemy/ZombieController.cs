@@ -9,6 +9,8 @@ public class ZombieController : EnemyParent
     }
     private void Update()
     {
+        if (PauseManager.instance.paused) return;
+
         if (currentStun > 0)
         {
             currentStun -= Time.deltaTime;

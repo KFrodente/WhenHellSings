@@ -24,6 +24,8 @@ public class ShootingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseManager.instance.paused) return;
+
         counter -= Time.deltaTime;
         if (Input.GetButtonDown("Fire1") && counter <= 0)
         {

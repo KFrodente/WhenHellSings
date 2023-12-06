@@ -19,6 +19,8 @@ public class FlyingEnemyController : EnemyParent
 
     private void Update()
     {
+        if (PauseManager.instance.paused) return;
+
         if (Mathf.Abs(Vector2.Distance(transform.position, PlayerMovement.instance.transform.position)) > 15.0f)
         {
             lifespanCounter -= Time.deltaTime;

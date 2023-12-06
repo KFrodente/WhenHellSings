@@ -137,6 +137,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (PauseManager.instance.paused) return;
+
         if (!canMove)
         {
             theRB.velocity = new Vector2(0f, theRB.velocity.y);
@@ -208,6 +210,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseManager.instance.paused) return;
+
         mainCam.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, -10);
 
         jump();
