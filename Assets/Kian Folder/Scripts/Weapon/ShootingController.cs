@@ -27,6 +27,7 @@ public class ShootingController : MonoBehaviour
         counter -= Time.deltaTime;
         if (Input.GetButtonDown("Fire1") && counter <= 0)
         {
+            PlayerMovement.instance.animator.SetBool("Attacked", true);
             GameObject bolt = Instantiate(currentBolt, firePoint.position, transform.rotation);
             bolt.GetComponent<BoltController>().direction = (PlayerMovement.instance.facingRight) ? Vector2.right : Vector2.left;
             counter = firerate;
@@ -45,6 +46,7 @@ public class ShootingController : MonoBehaviour
         }
         if (pauseMoveCounter <= 0 && frozen)
         {
+            PlayerMovement.instance.animator.SetBool("Attacked", false);
             PlayerMovement.instance.canMove = true;
             frozen = false;
         }

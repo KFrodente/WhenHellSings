@@ -114,8 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d8542271a6df64596c1f3903abce1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overLadder: 0
-  climbSpeed: 0.5
+  animator: {fileID: 2920193707615117621}
   maxMovementSpeed: 25
   minWalkSpeed: 4
   oMoveSpeed: 10
@@ -134,7 +133,7 @@ MonoBehaviour:
   forcedDecelerationRaiseTimer: 0.15
   slickMaterial: {fileID: 6200000, guid: 4b374253f39570b449def5992f71f7bb, type: 2}
   frictionMaterial: {fileID: 6200000, guid: b7259147d1bf3604681689acc832de45, type: 2}
-  oJumpForce: 15.5
+  oJumpForce: 20
   jumpTime: 0.145
   jumpLeeway: 0.12
   gCheckDist: 0.175
@@ -160,7 +159,7 @@ MonoBehaviour:
   firePoint: {fileID: 3059464330763427287}
   currentBolt: {fileID: 1516818430449759293, guid: 70c38b01f8643c2458fd222ffdaf7529, type: 3}
   firerate: 0.125
-  pauseMoveTime: 0.125
+  pauseMoveTime: 0.1
 --- !u!114 &280915579954861399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,8 +192,8 @@ MonoBehaviour:
   oWhipHealCooldown: 5
   whipHealCounter: 0
   whipArea: {fileID: 3662341141771008893}
-  oWhipAttackCooldown: 2
-  whipLifespan: 0.35
+  oWhipAttackCooldown: 1.2
+  whipLifespan: 0.21
 --- !u!1 &2420930874824938439
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +325,7 @@ Transform:
   m_GameObject: {fileID: 3141272904496477821}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0.929, y: 0.569, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -360,7 +359,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.63, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2625, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6819882921734026169}

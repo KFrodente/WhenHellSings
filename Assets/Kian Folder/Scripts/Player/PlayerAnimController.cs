@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerAnimController : MonoBehaviour
 {
     public Animator animator;
-
-    private void Update()
+    private void SetBools(bool idle, bool walking, bool attacking, bool whipping)
     {
-        if (PlayerMovement.instance.theRB.velocity.x == 0)
-        {
-            //animator.
-        }
+        animator.SetBool("Idle", idle);
+        animator.SetBool("Walking", walking);
+        animator.SetBool("Attacking", attacking);
+        animator.SetBool("Whipping", whipping);
     }
 }

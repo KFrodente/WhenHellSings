@@ -18,8 +18,15 @@ public class ZombieAnimController : MonoBehaviour
     {
         //moveTimer -= Time.deltaTime;
         var playerDistance = Mathf.Abs(transform.position.x - PlayerMovement.instance.transform.position.x);
-        animator.SetFloat("PlayerDist", playerDistance);
+        if (GetComponent<EnemyParent>().currentStun <= 0)
+        {
+            animator.speed = 1;
 
+        }
+        else
+            animator.speed = 0;
+
+        animator.SetFloat("PlayerDist", playerDistance);
         //if (playerDistance <= 1)
         //{
         //    GetComponent<EnemyParent>().moveSpeed = 0;

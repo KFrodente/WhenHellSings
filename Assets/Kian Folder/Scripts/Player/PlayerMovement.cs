@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Animator animator;
+
+
     public static PlayerMovement instance;
 
     private float onGroundTimer;
     private float oGravity;
-
-    [SerializeField] private bool overLadder = false;
-    [SerializeField] private float climbSpeed;
 
     #region Movement/acceleration/physics
     [Header("MOVEMENT")]
@@ -131,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
         theRB = GetComponent<Rigidbody2D>();
         mainCam = Camera.main;
         oGravity = theRB.gravityScale;
+        animator.SetBool("FacingRight", facingRight);
+
     }
 
     private void FixedUpdate()
@@ -169,6 +171,7 @@ public class PlayerMovement : MonoBehaviour
             frictionMaterial.friction = 0;
 
 
+        
         /*
         //Change the gravity depending on situation
         if (isDashing)
@@ -185,6 +188,12 @@ public class PlayerMovement : MonoBehaviour
             theRB.gravityScale = oGravity + postJumpGravity;
         //}
 
+        if (theRB.velocity.y != 0)
+        {
+            //animator.SetBool("")
+        }
+
+
         //forces the jump to always go the same distance
         if (jumpCounter > 0)
             jumpCounter -= Time.fixedDeltaTime;
@@ -200,6 +209,19 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         mainCam.transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, -10);
+
+        jump();
+
+        animator.SetFloat("HorizontalSpeed", Mathf.Abs(targetSpeed));
+
+        if (isFalling || isRising)
+        {
+            animator.SetBool("Jumping", true);
+        }else
+        {
+            animator.SetBool("Jumping", false);
+        }
+
         if (!canMove) return;
 
 
@@ -310,29 +332,6 @@ public class PlayerMovement : MonoBehaviour
 
             jumpCounter = jumpTime;
 
-            /*
-            //if the player jumps while dashing it does the super dash
-            if (isDashing)
-            {
-                //move speed and jump force get changed by a certain amount
-                nMoveSpeed *= powerDashSpeedMultiplier + ((jumpsAvailable / maxJumps) * (powerDashSpeedDiminish - (maxJumps - jumpsAvailable)));
-                //if speed is above max, set it equal to max speed
-                if (nMoveSpeed > maxMovementSpeed)
-                {
-                    nMoveSpeed = maxMovementSpeed;
-                }
-                nJumpForce *= powerDashJumpHeightDiminish;
-                //lowers the deceleration
-                nWalkDeceleration -= decelerationDiminish;
-                if (nWalkDeceleration < minDeceleration)
-                {
-                    nWalkDeceleration = minDeceleration;
-                }
-                canDash = true;
-                isDashing = false;
-            }
-            */
-
             //this is for falling through platforms
             if (moveDir.y < 0 && isGrounded())
             {
@@ -425,6 +424,8 @@ public class PlayerMovement : MonoBehaviour
         //makes the facingRight bool become what it wasn't
         facingRight = !facingRight;
 
+        animator.SetBool("FacingRight", facingRight);
+
         //rotates the player (and all of its children) 180 degrees (this makes it look like the gun is behind the player as well)
         transform.Rotate(0f, 180f, 0f);
         nWalkDeceleration = oWalkDeceleration;
@@ -438,22 +439,6 @@ public class PlayerMovement : MonoBehaviour
         if (nWalkDeceleration > maxDeceleration)
         {
             nWalkDeceleration = maxDeceleration;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Ladder")
-        {
-            overLadder = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Ladder")
-        {
-            overLadder = false;
         }
     }
 }

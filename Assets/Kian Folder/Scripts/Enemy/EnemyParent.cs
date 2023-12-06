@@ -11,7 +11,7 @@ public abstract class EnemyParent : MonoBehaviour
     [SerializeField] public float moveSpeed;
     public bool facingRight;
 
-    protected float currentStun;
+    public float currentStun { get; protected set; }
 
     [SerializeField]protected Rigidbody2D rb;
 

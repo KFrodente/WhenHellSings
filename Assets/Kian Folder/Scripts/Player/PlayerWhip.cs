@@ -44,6 +44,7 @@ public class PlayerWhip : MonoBehaviour
         {
             if (whipAttackCounter <= 0)
             {
+                PlayerMovement.instance.animator.SetBool("Whipped", true);
                 whipArea.SetActive(true);
                 whipArea.GetComponent<WhipController>().hitEnemies.Clear();
 
@@ -54,6 +55,7 @@ public class PlayerWhip : MonoBehaviour
 
         if (whipLifespanCounter <= 0 && whipArea.activeInHierarchy)
         {
+            PlayerMovement.instance.animator.SetBool("Whipped", false);
             PlayerMovement.instance.canMove = true;
             whipArea.SetActive(false);
         }
