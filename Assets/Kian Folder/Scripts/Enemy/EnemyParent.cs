@@ -61,7 +61,7 @@ public abstract class EnemyParent : MonoBehaviour
 
     public void Knockback(int knockbackPower)
     {
-        if (facingRight)
+        if (!PlayerMovement.instance.facingRight)
             rb.AddForce(new Vector2(-2.0f * knockbackPower, 0));
         else
             rb.AddForce(new Vector2(2.0f * knockbackPower, 0));

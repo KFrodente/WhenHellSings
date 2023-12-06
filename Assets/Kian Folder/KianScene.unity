@@ -298,7 +298,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8.58
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -512,6 +512,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2087511619853395452, guid: d8ed078d2aacdd04b82ce1412bdcd8f6, type: 3}
+      propertyPath: health
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 3645826538342467537, guid: d8ed078d2aacdd04b82ce1412bdcd8f6, type: 3}
       propertyPath: m_Name
       value: Zombie
