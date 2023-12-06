@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boltSpeed: 45
-  boltDamage: 5
+  boltDamage: 10
+  stunTime: 0
   lifespan: 3
   direction: {x: 0, y: 0}

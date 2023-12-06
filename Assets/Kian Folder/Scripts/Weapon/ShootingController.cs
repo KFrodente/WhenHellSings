@@ -8,6 +8,9 @@ public class ShootingController : MonoBehaviour
 
     public GameObject currentBolt;
 
+    public GameObject nBolt;
+    public GameObject lBolt;
+
     [Range(0f, 3f)] public float firerate;
 
     public float pauseMoveTime;
@@ -19,12 +22,19 @@ public class ShootingController : MonoBehaviour
     private void Start()
     {
         counter = firerate;
+        currentBolt = nBolt;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (PauseManager.instance.paused) return;
+
+        if (Input.GetButtonDown("SwitchBolt"))
+        {
+            if (currentBolt == nBolt) currentBolt = lBolt;
+            else if (currentBolt == lBolt) currentBolt = nBolt;
+        }
 
         counter -= Time.deltaTime;
         if (Input.GetButtonDown("Fire1") && counter <= 0)
