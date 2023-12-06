@@ -11,6 +11,8 @@ public class PlayerWhip : MonoBehaviour
 
     public GameObject whipArea;
 
+    public GameObject whipSprite;
+
     
     [Tooltip("How fast the player can attack with the whip")]public float oWhipAttackCooldown;
     private float whipAttackCounter;
@@ -27,6 +29,7 @@ public class PlayerWhip : MonoBehaviour
     {
 
         whipHealCounter -= Time.deltaTime;
+
 
         if (whipAttackCounter > 0)
         {
