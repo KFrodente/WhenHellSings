@@ -7,6 +7,8 @@ public class PlayerHealthController : MonoBehaviour
 {
     public static PlayerHealthController instance;
 
+    public AudioClip playerHitSound;
+
     public int maxHealth;
     [HideInInspector] public int health;
 
@@ -69,6 +71,8 @@ public class PlayerHealthController : MonoBehaviour
     {
         if (iFrameTime <= 0.0f)
         {
+            AudioController.instance.PlaySound(playerHitSound, GetComponent<AudioSource>());
+
             if (PlayerMovement.instance.facingRight)
                 PlayerMovement.instance.theRB.AddForce(new Vector2(-2.0f * knockbackSpeed, .75f * knockbackSpeed));
             else

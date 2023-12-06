@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public Animator animator;
 
+    public AudioClip walkSound;
+
 
     public static PlayerMovement instance;
 
@@ -248,8 +250,10 @@ public class PlayerMovement : MonoBehaviour
             jumpsAvailable = maxJumps;
             onGroundTimer += Time.deltaTime;
 
+            //if (Mathf.Abs(targetSpeed) > 0)
+            //    AudioController.instance.PlaySound(walkSound, GetComponent<AudioSource>());
 
-            if (onGroundTimer >= forcedDecelerationRaiseTimer && nWalkDeceleration != maxDeceleration)
+                if (onGroundTimer >= forcedDecelerationRaiseTimer && nWalkDeceleration != maxDeceleration)
             {
                 raiseDeceleration(1000f);
             }

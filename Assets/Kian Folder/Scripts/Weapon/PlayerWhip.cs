@@ -6,6 +6,8 @@ public class PlayerWhip : MonoBehaviour
 {
     public static PlayerWhip instance;
 
+    public AudioClip whipSound;
+
     public float oWhipHealCooldown;
     [HideInInspector] public float whipHealCounter;
 
@@ -48,6 +50,8 @@ public class PlayerWhip : MonoBehaviour
         {
             if (whipAttackCounter <= 0)
             {
+                AudioController.instance.PlaySound(whipSound, GetComponent<AudioSource>());
+
                 PlayerMovement.instance.animator.SetBool("Whipped", true);
                 whipArea.SetActive(true);
                 whipArea.GetComponent<WhipController>().hitEnemies.Clear();

@@ -10,12 +10,14 @@ public class ShootingController : MonoBehaviour
 
     public GameObject nBolt;
     public GameObject lBolt;
+    public AudioClip shootSound;
 
     [Range(0f, 3f)] public float firerate;
 
     public float pauseMoveTime;
     private float pauseMoveCounter;
     private bool frozen = false;
+
 
     private float counter;
 
@@ -39,6 +41,8 @@ public class ShootingController : MonoBehaviour
         counter -= Time.deltaTime;
         if (Input.GetButtonDown("Fire1") && counter <= 0)
         {
+            float pitch = Random.Range(0.5f, 1.2f);
+            AudioController.instance.PlaySound(shootSound, GetComponent<AudioSource>(), pitch);
             PlayerMovement.instance.animator.SetBool("Attacked", true);
             GameObject bolt = Instantiate(currentBolt, firePoint.position, transform.rotation);
             bolt.GetComponent<BoltController>().direction = (PlayerMovement.instance.facingRight) ? Vector2.right : Vector2.left;
