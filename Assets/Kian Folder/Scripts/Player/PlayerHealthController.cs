@@ -7,8 +7,8 @@ public class PlayerHealthController : MonoBehaviour
 {
     public static PlayerHealthController instance;
 
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int health;
+    public int maxHealth;
+    [HideInInspector] public int health;
 
     [SerializeField] public float iFrameTime = 0;
     public float knockbackSpeed;
