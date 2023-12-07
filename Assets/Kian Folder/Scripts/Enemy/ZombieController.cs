@@ -5,7 +5,7 @@ public class ZombieController : EnemyParent
 {
     public AudioClip gotHitSound;
 
-    private float deathTimer = .35f;
+    private float deathTimer = .15f;
     private bool startDeath = false;
 
     private void Start()
