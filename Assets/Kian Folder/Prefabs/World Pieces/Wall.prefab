@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1734948186402780518}
   - component: {fileID: 2077053516151582635}
   - component: {fileID: 1663087227246492484}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3821308445762867255}
   - component: {fileID: 5666776376975619572}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BouncePiece
   m_TagString: Bounce
   m_Icon: {fileID: 0}
