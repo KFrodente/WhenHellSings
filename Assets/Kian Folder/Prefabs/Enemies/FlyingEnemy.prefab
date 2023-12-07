@@ -203,7 +203,8 @@ MonoBehaviour:
   agroRadius: 15
   bounce: 0
   flashColor: {r: 1, g: 0.97974, b: 0.63584906, a: 0.7607843}
-  amplitude: 2
+  gotHitSound: {fileID: 0}
+  amplitude: 1
   lifespan: 5
 --- !u!82 &3300150571092720930
 AudioSource:
